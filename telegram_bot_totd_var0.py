@@ -8,24 +8,21 @@ from telegram.ext import Updater, CommandHandler
 from telegram.ext import MessageHandler, Filters, InlineQueryHandler
 from time import sleep
 
-Token = "5900748455:AAHsYRloVvw0tktlGm9uCFry4Jiafbnr3R4"
+Token = "INSERT YOUR TOKEN HERE"
 
-updater = telegram.ext.Updater("5900748455:AAHsYRloVvw0tktlGm9uCFry4Jiafbnr3R4", use_context=True)
+updater = telegram.ext.Updater("INSERT YOUR TOKEN HERE", use_context=True)
 dispatcher = updater.dispatcher
 
-messages_text = ['"Одна тільки сила волі може змінити Всесвіт"',
-                 '"Перемога або смерть!"',
-                 '"Віра - мій щит. Лють - мій меч."',
-                 '"Рандомна пафосна цитата"']
+messages_text = ['"Put random epic wh40k sentences in this array"']
 
 def start(update, context):
-    update.message.reply_text("Ця благословенна програма публікує цитати. Введіть /send_msg для початку роботи.")
+    update.message.reply_text("Random epic throught 4 times per day. Type /send_msg to start.")
 
 def send_msg(update, context):
     msg_handler = True
     while msg_handler == True:
         txmsg = random.choice(messages_text)
-        context.bot.sendMessage(chat_id='-852220279', text=txmsg)
+        context.bot.sendMessage(chat_id='INSERT YOUR CHAT ID HERE', text=txmsg)
         time.sleep(21600)
 
 dispatcher.add_handler(telegram.ext.CommandHandler('start', start))
